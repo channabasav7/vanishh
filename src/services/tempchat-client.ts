@@ -16,7 +16,7 @@ import type {
 
 export interface SendMessageInput {
   conversationId: string;
-  body?: string;
+  body?: string | undefined;
   attachments?: Attachment[];
   expirySeconds: number;
 }
