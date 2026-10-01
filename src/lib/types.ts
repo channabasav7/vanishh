@@ -41,7 +41,7 @@ export interface Message {
   id: string;
   conversationId: string;
   authorId: string;
-  body?: string;
+  body?: string | undefined;
   attachments: Attachment[];
   createdAt: number;
   /** Epoch ms when this message burns. */

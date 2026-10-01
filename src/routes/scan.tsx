@@ -27,7 +27,7 @@ export const Route = createFileRoute("/scan")({
 
 function usernameFrom(text: string): string | null {
   const m = text.match(/\/connect\/([a-z0-9_]{3,20})/i);
-  if (m) return m[1];
+  if (m?.[1]) return m[1];
   const h = text.trim().replace(/^@/, "");
   return /^[a-z0-9_]{3,20}$/i.test(h) ? h : null;
 }
@@ -43,7 +43,7 @@ function ScanInner() {
 
   const open = async (raw: string) => {
     const handle = usernameFrom(raw);
-    if (!handle) return toast.error("That QR isn't a TempChat code.");
+    if (!handle) { toast.error("That QR is not a TempChat code."); return; }
     stopRef.current?.();
     setOpening(true);
     const c = await getClient().openConversationWith(handle);
