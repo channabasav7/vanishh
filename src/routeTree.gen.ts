@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatsRouteImport } from './routes/chats'
+import { Route as ConnectionsRouteImport } from './routes/connections'
+import { Route as FilesRouteImport } from './routes/files'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as QrRouteImport } from './routes/qr'
+import { Route as ScanRouteImport } from './routes/scan'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as StartRouteImport } from './routes/start'
+import { Route as ChatIdRouteImport } from './routes/chat.$id'
+import { Route as ConnectUsernameRouteImport } from './routes/connect.$username'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatsRoute = ChatsRouteImport.update({
+  id: '/chats',
+  path: '/chats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectionsRoute = ConnectionsRouteImport.update({
+  id: '/connections',
+  path: '/connections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilesRoute = FilesRouteImport.update({
+  id: '/files',
+  path: '/files',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QrRoute = QrRouteImport.update({
+  id: '/qr',
+  path: '/qr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScanRoute = ScanRouteImport.update({
+  id: '/scan',
+  path: '/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartRoute = StartRouteImport.update({
+  id: '/start',
+  path: '/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatIdRoute = ChatIdRouteImport.update({
+  id: '/chat/$id',
+  path: '/chat/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectUsernameRoute = ConnectUsernameRouteImport.update({
+  id: '/connect/$username',
+  path: '/connect/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chats': typeof ChatsRoute
+  '/connections': typeof ConnectionsRoute
+  '/files': typeof FilesRoute
+  '/profile': typeof ProfileRoute
+  '/qr': typeof QrRoute
+  '/scan': typeof ScanRoute
+  '/settings': typeof SettingsRoute
+  '/start': typeof StartRoute
+  '/chat/$id': typeof ChatIdRoute
+  '/connect/$username': typeof ConnectUsernameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chats': typeof ChatsRoute
+  '/connections': typeof ConnectionsRoute
+  '/files': typeof FilesRoute
+  '/profile': typeof ProfileRoute
+  '/qr': typeof QrRoute
+  '/scan': typeof ScanRoute
+  '/settings': typeof SettingsRoute
+  '/start': typeof StartRoute
+  '/chat/$id': typeof ChatIdRoute
+  '/connect/$username': typeof ConnectUsernameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chats': typeof ChatsRoute
+  '/connections': typeof ConnectionsRoute
+  '/files': typeof FilesRoute
+  '/profile': typeof ProfileRoute
+  '/qr': typeof QrRoute
+  '/scan': typeof ScanRoute
+  '/settings': typeof SettingsRoute
+  '/start': typeof StartRoute
+  '/chat/$id': typeof ChatIdRoute
+  '/connect/$username': typeof ConnectUsernameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chats'
+    | '/connections'
+    | '/files'
+    | '/profile'
+    | '/qr'
+    | '/scan'
+    | '/settings'
+    | '/start'
+    | '/chat/$id'
+    | '/connect/$username'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/chats'
+    | '/connections'
+    | '/files'
+    | '/profile'
+    | '/qr'
+    | '/scan'
+    | '/settings'
+    | '/start'
+    | '/chat/$id'
+    | '/connect/$username'
+  id:
+    | '__root__'
+    | '/'
+    | '/chats'
+    | '/connections'
+    | '/files'
+    | '/profile'
+    | '/qr'
+    | '/scan'
+    | '/settings'
+    | '/start'
+    | '/chat/$id'
+    | '/connect/$username'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatsRoute: typeof ChatsRoute
+  ConnectionsRoute: typeof ConnectionsRoute
+  FilesRoute: typeof FilesRoute
+  ProfileRoute: typeof ProfileRoute
+  QrRoute: typeof QrRoute
+  ScanRoute: typeof ScanRoute
+  SettingsRoute: typeof SettingsRoute
+  StartRoute: typeof StartRoute
+  ChatIdRoute: typeof ChatIdRoute
+  ConnectUsernameRoute: typeof ConnectUsernameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chats': {
+      id: '/chats'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof ChatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connections': {
+      id: '/connections'
+      path: '/connections'
+      fullPath: '/connections'
+      preLoaderRoute: typeof ConnectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/files': {
+      id: '/files'
+      path: '/files'
+      fullPath: '/files'
+      preLoaderRoute: typeof FilesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qr': {
+      id: '/qr'
+      path: '/qr'
+      fullPath: '/qr'
+      preLoaderRoute: typeof QrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scan': {
+      id: '/scan'
+      path: '/scan'
+      fullPath: '/scan'
+      preLoaderRoute: typeof ScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start': {
+      id: '/start'
+      path: '/start'
+      fullPath: '/start'
+      preLoaderRoute: typeof StartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat/$id': {
+      id: '/chat/$id'
+      path: '/chat/$id'
+      fullPath: '/chat/$id'
+      preLoaderRoute: typeof ChatIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect/$username': {
+      id: '/connect/$username'
+      path: '/connect/$username'
+      fullPath: '/connect/$username'
+      preLoaderRoute: typeof ConnectUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatsRoute: ChatsRoute,
+  ConnectionsRoute: ConnectionsRoute,
+  FilesRoute: FilesRoute,
+  ProfileRoute: ProfileRoute,
+  QrRoute: QrRoute,
+  ScanRoute: ScanRoute,
+  SettingsRoute: SettingsRoute,
+  StartRoute: StartRoute,
+  ChatIdRoute: ChatIdRoute,
+  ConnectUsernameRoute: ConnectUsernameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
